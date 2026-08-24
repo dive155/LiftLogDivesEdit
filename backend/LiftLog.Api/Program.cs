@@ -36,7 +36,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddSingleton<PasswordService>();
-builder.Services.AddScoped<RateLimitService>();
 
 builder.Services.AddHostedService<CleanupExpiredDataHostedService>();
 builder
