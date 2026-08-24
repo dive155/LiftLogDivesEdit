@@ -54,7 +54,8 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": true,
+      "baseUrl": "/liftlog"
     },
     "scheme": "liftlog",
     "android": {
@@ -75,7 +76,7 @@
           "data": [
             {
               "scheme": "https",
-              "host": "app.liftlog.online"
+              "host": "divefrom.space"
             }
           ],
           "category": ["BROWSABLE", "DEFAULT"]
@@ -109,7 +110,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.limajuice.liftlog",
-      "associatedDomains": ["applinks:app.liftlog.online"],
+      "associatedDomains": ["applinks:divefrom.space"],
       "supportsTablet": true,
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": true,

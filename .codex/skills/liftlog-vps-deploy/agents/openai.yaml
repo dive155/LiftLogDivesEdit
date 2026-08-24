@@ -1,0 +1,3 @@
+interface:
+  display_name: "LiftLog VPS Deploy"
+  short_description: "Deploy LiftLog safely to the Dima VPS"

@@ -392,3 +392,5 @@ tests/LiftLog.Tests.Api/appsettings.Development.json
 temp/
 
 CLAUDE.local.md
+# Self-hosted deployment secrets.
+deploy/liftlog/.env

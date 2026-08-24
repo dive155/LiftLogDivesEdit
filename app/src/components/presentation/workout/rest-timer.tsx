@@ -21,8 +21,9 @@ interface RestTimerProps {
 
 /**
  * We treat resting as a window, not a deadline: below `minRest` you are still recovering, between min and max
- * you should lift, and past max you have gone over. Each phase owns one colour, and the two track
- * segments are the window itself, sized in proportion to how long each part of it lasts.
+ * you should lift, and past max you have gone over. The displayed clock always counts total rest elapsed;
+ * each phase owns one colour, and the two track segments are the window itself, sized in proportion to how
+ * long each part of it lasts.
  */
 type RestPhase = 'resting' | 'ready' | 'over';
 
@@ -65,7 +66,7 @@ export default function RestTimer({
         phase: 'resting' as const,
         windowStart,
         windowEnd,
-        remaining: formatTimeSpan(windowStart - elapsed),
+        remaining: formatTimeSpan(elapsed),
         restProgress: elapsed / windowStart,
         windowProgress: 0,
       };
@@ -75,7 +76,7 @@ export default function RestTimer({
         phase: 'ready' as const,
         windowStart,
         windowEnd,
-        remaining: formatTimeSpan(windowEnd - elapsed),
+        remaining: formatTimeSpan(elapsed),
         restProgress: 1,
         windowProgress: (elapsed - windowStart) / (windowEnd - windowStart),
       };
@@ -84,7 +85,7 @@ export default function RestTimer({
       phase: 'over' as const,
       windowStart,
       windowEnd,
-      remaining: `+${formatTimeSpan(elapsed - (windowEnd ?? windowStart))}`,
+      remaining: formatTimeSpan(elapsed),
       restProgress: 1,
       windowProgress: 1,
     };

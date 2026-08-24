@@ -14,6 +14,7 @@ import {
 } from '@/models/feed-models';
 import { RemoteData } from '@/models/remote';
 import { ApiError } from '@/services/api-error';
+import { shareAppBaseUrl } from '@/services/api-consts';
 import { createAction, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type FeedState = {
@@ -232,7 +233,7 @@ export const {
 export const initializeFeedStateSlice = createAction('initializeFeedStateSlice');
 
 export function getFeedShareUrl(identity: FeedIdentity) {
-  return `https://app.liftlog.online/feed/share?id=${identity.lookup}${
+  return `${shareAppBaseUrl}/feed/share?id=${identity.lookup}${
     identity.name ? `&name=${encodeURIComponent(identity.name)}` : ''
   }`;
 }

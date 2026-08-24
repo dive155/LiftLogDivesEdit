@@ -4,6 +4,7 @@ import { RemoteData } from '@/models/remote';
 import { AnyVersionSharedItemJSON } from '@/models/storage/versions/any';
 import { sharedItemMigrations } from '@/models/storage/versions/migrations';
 import { ApiErrorType } from '@/services/api-error';
+import { shareAppBaseUrl } from '@/services/api-consts';
 import { fromJsonBytes, toJsonBytes } from '@/services/encryption-service';
 import { encryptAndShare, feedApiError, fetchSharedItem, setSharedItem } from '@/store/feed';
 import { AddEffectFn } from '@/store/store';
@@ -98,5 +99,5 @@ export function addSharedItemEffects(addEffect: AddEffectFn) {
 }
 
 function getShareUrl(sharedItemId: string, aesKey: AesKey) {
-  return `https://app.liftlog.online/feed/shared-item/${sharedItemId}?k=${toUrlSafeHexString(aesKey.value)}`;
+  return `${shareAppBaseUrl}/feed/shared-item/${sharedItemId}?k=${toUrlSafeHexString(aesKey.value)}`;
 }
