@@ -4,6 +4,7 @@ using LiftLog.Api.Db;
 using LiftLog.Api.Service;
 using LiftLog.Api.Validators;
 using LiftLog.Lib.Serialization;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -36,6 +37,13 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddSingleton<PasswordService>();
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    // The API is bound to loopback only, so every request arrives through the local Nginx proxy.
+    options.KnownIPNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 
 builder.Services.AddHostedService<CleanupExpiredDataHostedService>();
 builder
@@ -50,6 +58,7 @@ builder
     });
 
 var app = builder.Build();
+app.UseForwardedHeaders();
 app.UseCors();
 
 if (!app.Environment.IsDevelopment())
