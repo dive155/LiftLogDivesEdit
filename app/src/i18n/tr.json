@@ -1,11 +1,5 @@
 {
-  "ai.planner.subtitle": "Hedeflerine göre bir program oluşturmak için AI kullan",
-  "ai.planner.title": "AI Planlayıcı",
   "exercise.progressive_overload.label": "Aşamalı Yükleme",
-  "ai.restart_chat.button": "Sohbeti yeniden başlat",
-  "ai.type_your_message.placeholder": "Mesajınızı yazın",
-  "ai.upgrade_to_pro.button": "Pro'ya yükselt",
-  "ai.upgrade_to_pro.explanation": "Size ve hedeflerinize özel olarak uyarlanmış bir plan oluşturacak olan AI planlayıcısı aktif edecektir. <br> Satın alma işlemi:",
   "backup.api_key.label": "API Anahtarı",
   "backup.automatic_remote.subtitle": "Yedekleri uzak bir sunucuya gönderin. Sadece gelişmiş kullanıcılar",
   "backup.automatic_remote.title": "Otomatik uzak sunucuya yedekleme",

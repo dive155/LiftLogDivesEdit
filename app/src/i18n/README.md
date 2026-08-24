@@ -22,14 +22,14 @@ Please follow these rules when **adding or modifying translation keys**.
 
 ```json
 "workout.finish.button": "Finish workout"
-"ai.planner.subtitle": "Use AI to generate an entire program suited to your goals"
+"plan.import.subtitle": "Import a plan from a file"
 ```
 
 ### ❌ Bad
 
 ```json
 "Finish workout?": "Finish workout?"
-"AiPlannerSubtitle": "Use AI to generate an entire program suited to your goals"
+"ImportPlanSubtitle": "Import a plan from a file"
 "All kilograms": "All kilograms"
 ```
 

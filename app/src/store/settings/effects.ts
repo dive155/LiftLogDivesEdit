@@ -6,7 +6,6 @@ import {
   setIsHydrated,
   setLastBackup,
   setPreferredLanguage,
-  setProToken,
   setRemoteBackupSettings,
 } from '@/store/settings';
 import {
@@ -24,8 +23,7 @@ import { addImportBackupEffects } from '@/store/settings/import-backup-effects';
 import { addImportExternalEffects } from '@/store/settings/import-external-effects';
 import { addRemoteBackupEffects } from '@/store/settings/remote-backup-effects';
 
-import Purchases from 'react-native-purchases';
-import { I18nManager, Platform } from 'react-native';
+import { I18nManager } from 'react-native';
 import { detectLanguageFromDateLocale } from '@/utils/language-detector';
 import { supportedLanguages } from '@/services/tolgee';
 import { initializeStoredSessionsStateSlice } from '@/store/stored-sessions';
@@ -77,31 +75,6 @@ export function applySettingsEffects(addEffect: AddEffectFn) {
         ),
       );
 
-      const proToken = await preferenceService.getProToken();
-      dispatch(setProToken(proToken));
-
-      if (!__DEV__) {
-        if (Platform.OS === 'ios') {
-          Purchases.configure({
-            apiKey: process.env.EXPO_PUBLIC_REVENUECAT_APPLE_API_KEY!,
-          });
-        } else if (Platform.OS === 'android') {
-          Purchases.configure({
-            apiKey: process.env.EXPO_PUBLIC_REVENUECAT_GOOGLE_API_KEY!,
-          });
-        }
-      }
-      // migrate pro token to a revenuecat
-      if (proToken && !proToken.startsWith('$RCAnonymousID')) {
-        try {
-          const customerInfo = await Purchases.getCustomerInfo();
-          await Purchases.syncPurchases();
-          dispatch(setProToken(customerInfo.originalAppUserId));
-          await preferenceService.setProToken(customerInfo.originalAppUserId);
-        } catch (err) {
-          logger.error('Failed to migrate user', err);
-        }
-      }
       dispatch(setIsHydrated(true));
       dispatch(initializeStoredSessionsStateSlice());
       const end = performance.now();
@@ -148,12 +121,6 @@ export function applySettingsEffects(addEffect: AddEffectFn) {
       }
     },
   );
-
-  addEffect(setProToken, async (action, { stateAfterReduce, extra: { preferenceService } }) => {
-    if (stateAfterReduce.settings.isHydrated) {
-      await preferenceService.setProToken(action.payload);
-    }
-  });
 
   addEffect(setRemoteBackupSettings, async (action, { stateAfterReduce, extra: { preferenceService } }) => {
     if (stateAfterReduce.settings.isHydrated) {

@@ -1,10 +1,4 @@
 {
-  "ai.planner.subtitle": "Gebruik AI om een geheel programma op te stellen dat aansluit bij uw doelen",
-  "ai.planner.title": "AI Planner",
-  "ai.restart_chat.button": "Chat opnieuw starten",
-  "ai.type_your_message.placeholder": "Schrijf je bericht",
-  "ai.upgrade_to_pro.button": "Upgrade naar Pro",
-  "ai.upgrade_to_pro.explanation": "Dit ontgrendelt de AI planner, waarmee je trainingsplannen kunt genereren afgesteld op jezelf en jouw doelen. <br>Dit is een eenmalige aankoop van:",
   "backup.api_key.label": "API Key",
   "backup.automatic_remote.subtitle": "Verstuur back-ups naar een server op afstand. Alleen voor geavanceerde gebruikers",
   "backup.automatic_remote.title": "Automatische back-up op afstand",

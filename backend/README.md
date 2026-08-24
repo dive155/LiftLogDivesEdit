@@ -1,6 +1,6 @@
 ## LiftLog Backend
 
-The LiftLog backend is written in C# on the latest .NET. The backend is responsible for storing and serving user feeds (which are end-to-end encrypted) and serving the AI planner. It requires a PostgreSQL database.
+The LiftLog backend is written in C# on the latest .NET. The backend is responsible for storing and serving user feeds (which are end-to-end encrypted). It requires a PostgreSQL database.
 
 ### Prerequisites
 
@@ -43,17 +43,9 @@ Here is an example configuration that works with the Docker Compose setup:
     "UserDataContext": "Host=localhost;Port=5400;Database=liftlog;Username=postgres;Password=password",
     "RateLimitContext": "Host=localhost;Port=5400;Database=liftlog;Username=postgres;Password=password"
   },
-  "AnthropicApiKey": "sk-test-key",
-  "WebAuthApiKey": "test-web-auth-key-12345",
-
-  // Optional
-  "RevenueCatApiKey": "test-key",
-  "RevenueCatProjectId": "test-project",
-  "RevenueCatProEntitlementId": "pro"
+  "SkipDatabaseMigrations": false
 }
 ```
-
-**Note:** The `RevenueCatApiKey` can be omitted if a `WebAuthApiKey` is provided. It is used only for validating in-app purchases for the AI planner.
 
 ### Running the Backend
 

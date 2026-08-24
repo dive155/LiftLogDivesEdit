@@ -12,14 +12,6 @@ const planBuilderSkillDir = join(__dirname, '../../plugins/liftlog-plan-builder/
 // Create schema for workout-worker - one file per definition
 createSplitSchemas(join(modelsDir, 'workout-worker-messages.ts'), join(docsSchemasPath, 'workout-worker'));
 
-// Create schema for the AI plan generator - a single self-contained file
-// rooted at AiPlan, with referenced types under `definitions`.
-createSingleSchema(
-  join(modelsDir, 'storage/versions/latest/ai-plan.ts'),
-  join(docsSchemasPath, 'ai-plan/AiPlan.json'),
-  'AiPlan',
-);
-
 // Create schema for an importable/exportable program blueprint file. The docs
 // copy is published for users to author plans against; the app copy is bundled
 // so it can be loaded at runtime for validation (Metro can't reach docs/); the

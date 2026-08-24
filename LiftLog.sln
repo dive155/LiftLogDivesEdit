@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftLog.Api", "backend\Lift
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftLog.Tests.Api", "tests\LiftLog.Tests.Api\LiftLog.Tests.Api.csproj", "{8306A2A4-BD01-48F5-B2F8-7A85B93D87FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevenueCat", "backend\RevenueCat\RevenueCat.csproj", "{C3642720-AB4F-41B0-BDAC-C18A0CB03600}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,22 +157,6 @@ Global
 		{49CFEDA6-F586-4ABD-8054-E689324700F5}.Release|x64.Build.0 = Release|Any CPU
 		{49CFEDA6-F586-4ABD-8054-E689324700F5}.Release|x86.ActiveCfg = Release|Any CPU
 		{49CFEDA6-F586-4ABD-8054-E689324700F5}.Release|x86.Build.0 = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|arm64.Build.0 = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|x64.Build.0 = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Debug|x86.Build.0 = Debug|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|arm64.ActiveCfg = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|arm64.Build.0 = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|x64.ActiveCfg = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|x64.Build.0 = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|x86.ActiveCfg = Release|Any CPU
-		{C3642720-AB4F-41B0-BDAC-C18A0CB03600}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

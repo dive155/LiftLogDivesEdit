@@ -83,14 +83,6 @@ export const preferenceRegistry = {
     sync: true,
   }),
 
-  // Write-back is a no-op in __DEV__; hydration carries the RevenueCat migration.
-  proToken: pref<string | undefined>({
-    default: undefined,
-    codec: stringCodec,
-    persist: false,
-    hydrate: 'manual',
-  }),
-
   // Fully bespoke: one state field spread across three storage keys.
   remoteBackupSettings: pref<RemoteBackupSettings>({
     default: { endpoint: '', apiKey: '', includeFeedAccount: false },

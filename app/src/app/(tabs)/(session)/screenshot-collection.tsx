@@ -4,12 +4,10 @@ import { Session, RecordedWeightedExercise, RecordedSet, RestTimer } from '@/mod
 import { Weight } from '@/models/weight';
 import { putStoredSession, setActiveSessionId } from '@/store/stored-sessions';
 import { useAppSelector } from '@/store';
-import { Duration, LocalDate, LocalTime, OffsetDateTime, ZoneOffset } from '@js-joda/core';
+import { LocalDate, LocalTime, OffsetDateTime, ZoneOffset } from '@js-joda/core';
 import { Redirect, useLocalSearchParams } from 'expo-router';
 import { useDispatch } from 'react-redux';
 import BigNumber from 'bignumber.js';
-import { setChat, ChatMessage } from '@/store/ai-planner';
-import { AiPlan } from '@/models/ai-models';
 import { setStatsIsDirty, fetchOverallStats } from '@/store/stats';
 import { savePlan, setSavedPlans } from '@/store/program';
 import { ProgramBlueprint } from '@/models/blueprint-models';
@@ -32,8 +30,6 @@ export default function ScreenshotCollectionPage() {
       return <PrepareWorkoutPage />;
     case 'exerciseeditor':
       return <PrepareExerciseEditorPage />;
-    case 'ai-planner':
-      return <PrepareAiPlannerPage />;
     case 'home':
       return <PrepareHomePage />;
     case 'stats':
@@ -93,63 +89,6 @@ function PrepareExerciseEditorPage() {
       }}
     />
   );
-}
-
-function PrepareAiPlannerPage() {
-  const dispatch = useDispatch();
-  useMountEffect(() => {
-    const rest = {
-      minRest: Duration.ofSeconds(90),
-      maxRest: Duration.ofSeconds(180),
-      failureRest: Duration.ofSeconds(300),
-    };
-    const ex = (name: string, sets: number, repsPerSet: number) =>
-      WeightedExerciseBlueprint.of({
-        name,
-        sets,
-        repsConfig: { type: 'fixed', reps: repsPerSet },
-        progression: [ProgressionRule.load(BigNumber(2.5))],
-        restBetweenSets: rest,
-      });
-    dispatch(
-      setChat([
-        {
-          id: 'agent-1',
-          from: 'Agent',
-          type: 'chatPlan',
-          plan: {
-            name: 'Upper/Lower Power & Hypertrophy',
-            description:
-              'A 2-day upper/lower split combining power and hypertrophy training for balanced strength and muscle development.',
-            blueprint: new ProgramBlueprint(
-              'Upper/Lower Power & Hypertrophy',
-              [
-                new SessionBlueprint(
-                  'Upper Power',
-                  [ex('Bench Press', 4, 5), ex('Barbell Row', 4, 5), ex('Overhead Press', 3, 5)],
-                  '',
-                ),
-                new SessionBlueprint(
-                  'Lower Power',
-                  [ex('Squat', 4, 5), ex('Romanian Deadlift', 3, 8), ex('Leg Press', 3, 8)],
-                  '',
-                ),
-              ],
-              LocalDate.now(),
-            ),
-          } satisfies AiPlan,
-        } satisfies ChatMessage,
-        {
-          id: 'user-1',
-          from: 'User',
-          type: 'messageResponse',
-          message: 'Create me a 2-day upper/lower split program',
-        } satisfies ChatMessage,
-      ]),
-    );
-  });
-
-  return <Redirect href={'/settings/ai/planner'} />;
 }
 
 function buildStatsSessionData(dispatch: ReturnType<typeof useDispatch>) {

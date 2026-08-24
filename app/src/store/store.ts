@@ -13,12 +13,10 @@ import feedReducer from './feed';
 import { storedSessionsReducer } from './stored-sessions';
 import { statsReducer } from '@/store/stats';
 import { createServices, Services } from '@/services';
-import { aiPlannerReducer } from '@/store/ai-planner';
 import { ExpoSQLiteDatabase } from 'drizzle-orm/expo-sqlite';
 import { SQLiteDatabase } from 'expo-sqlite';
 
 const rootReducer = combineReducers({
-  aiPlanner: aiPlannerReducer,
   settings: settingsReducer,
   program: programReducer,
   feed: feedReducer,

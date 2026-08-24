@@ -6,7 +6,6 @@ import {
   CardioExerciseBlueprintJSON,
   CardioExerciseSetBlueprintJSON,
   SessionJSON as InitialSessionJSON,
-  AiPlanJSON as InitialAiPlanJSON,
   SessionUserEventJSON as InitialSessionUserEventJSON,
   RemovedSessionUserEventJSON as InitialRemovedSessionUserEventJSON,
   SharedSessionJSON as InitialSharedSessionJSON,
@@ -24,7 +23,6 @@ import {
 import { WeightJSON, WeightUnitJSON } from '@/models/storage/versions/libs/weight';
 import { programBlueprintMigrations, sessionBlueprintMigrations } from './blueprint';
 import { sessionMigrations } from './session';
-import { aiPlanMigrations } from './ai-plan';
 import {
   followedFeedUserMigrations,
   removedSessionUserEventMigrations,
@@ -287,22 +285,6 @@ describe('real migrations', () => {
     it('is idempotent', () => {
       const once = sessionMigrations.migrate(initialSession());
       expect(sessionMigrations.migrate(once)).toEqual(once);
-    });
-  });
-
-  describe('aiPlanMigrations (wrapper of programBlueprint)', () => {
-    it('migrates the embedded blueprint to latest and preserves plan fields', () => {
-      const plan: InitialAiPlanJSON = {
-        name: 'Strength',
-        description: 'get strong',
-        blueprint: initialProgramBlueprint(),
-      };
-      const result = aiPlanMigrations.migrate(plan);
-      expect(result.version).toBe(3);
-      expect(result.name).toBe('Strength');
-      expect(result.description).toBe('get strong');
-      expect(result.blueprint.version).toBe(3);
-      expect(result.blueprint.sessions.every((s) => s.version === 6)).toBe(true);
     });
   });
 

@@ -27,7 +27,6 @@
 - 🎨 Material Design 3 via React Native Paper
 - 🌐 Internationalization with Tolgee/Weblate (10+ languages)
 - 🏋️‍♂️ Publish workouts, follow other users, and control your feed privacy
-- 🧠 AI planner tailors gym plans to your goals and body
 - ⚡ Fast, modern UI with Expo Router and Redux Toolkit
 
 ---
@@ -84,13 +83,7 @@ LiftLog is organized into several projects:
 
 For documentation on running the backend for local development, see [the README](./backend/README.md)
 
-- **Dotnet WebAPI** for feeds, AI plans, and secure data
-- **End-to-end encrypted feeds** (AES)
-- **Claude integration** for workout plans
-
-### RevenueCat ([RevenueCat/](./backend/RevenueCat/))
-
-- **Client library** for in-app purchases/subscriptions
+- **Dotnet WebAPI** for secure, end-to-end encrypted feeds
 
 ### Website ([site/](./site))
 

@@ -209,34 +209,6 @@ describe('PreferenceService - firstDayOfWeek', () => {
 
 // ─── proToken (has a __DEV__ write guard) ─────────────────────────────────────
 
-describe('PreferenceService - proToken', () => {
-  it('defaults to undefined and reads a stored token', async () => {
-    expect(await makeService().service.getProToken()).toBeUndefined();
-    expect(await makeService({ proToken: 'tok-123' }).service.getProToken()).toBe('tok-123');
-  });
-
-  it('does not write in __DEV__', async () => {
-    vi.stubGlobal('__DEV__', true);
-    const { service, store } = makeService();
-    await service.setProToken('tok-123');
-    expect(store.setItem).not.toHaveBeenCalled();
-  });
-
-  it('writes a truthy token outside __DEV__', async () => {
-    vi.stubGlobal('__DEV__', false);
-    const { service, store } = makeService();
-    await service.setProToken('tok-123');
-    expect(store.setItem).toHaveBeenCalledWith('proToken', 'tok-123');
-  });
-
-  it('does not write an undefined token outside __DEV__', async () => {
-    vi.stubGlobal('__DEV__', false);
-    const { service, store } = makeService();
-    await service.setProToken(undefined);
-    expect(store.setItem).not.toHaveBeenCalled();
-  });
-});
-
 // ─── preferredLanguage (sync, legacy rewrite, remove-on-undefined) ────────────
 
 describe('PreferenceService - preferredLanguage', () => {

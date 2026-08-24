@@ -12,7 +12,6 @@ import { applySettingsEffects } from '@/store/settings/effects';
 import { applyStoredSessionsEffects } from '@/store/stored-sessions/effects';
 import { applyFeedEffects } from '@/store/feed/effects';
 import { applyStatsEffects } from '@/store/stats/effects';
-import { applyAiPlannerEffects } from '@/store/ai-planner/effects';
 import { clearAllListeners, Store } from '@reduxjs/toolkit';
 import { ExpoSQLiteDatabase } from 'drizzle-orm/expo-sqlite';
 import { useIsFocused } from 'expo-router';
@@ -31,7 +30,6 @@ export function resolveStore(db: ExpoSQLiteDatabase, expoDb: SQLiteDatabase) {
   applyStoredSessionsEffects(addEffect);
   applyFeedEffects(addEffect);
   applyStatsEffects(addEffect);
-  applyAiPlannerEffects(addEffect);
 
   store.dispatch(initializeAppStateSlice());
   return { store, services };

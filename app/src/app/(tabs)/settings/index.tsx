@@ -77,15 +77,6 @@ export default function Settings() {
         ></List.Item>
       </List.Section>
 
-      <List.Section title={t('settings.pro_features.title')}>
-        <List.Item
-          onPress={() => push('/settings/ai/planner')}
-          title={t('ai.planner.title')}
-          description={t('ai.planner.subtitle')}
-          left={(props) => <List.Icon icon={'bolt'} {...props} />}
-        ></List.Item>
-      </List.Section>
-
       <List.Section title={t('settings.support.title')}>
         <List.Item
           onPress={() => openUrl('https://github.com/LiamMorrow/LiftLog/discussions')}

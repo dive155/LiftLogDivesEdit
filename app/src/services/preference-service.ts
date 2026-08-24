@@ -44,17 +44,6 @@ export class PreferenceService {
     return this.getPreference('useImperialUnits');
   }
 
-  getProToken(): Promise<string | undefined> {
-    return this.getPreference('proToken');
-  }
-
-  async setProToken(token?: string): Promise<void> {
-    if (__DEV__) {
-      return;
-    }
-    if (token) await this.keyValueStore.setItem('proToken', token);
-  }
-
   // Sync so it can be read before the store exists (Tolgee bootstrap). Rewrites
   // the legacy `zh_Hans` value to the current `zh-hans` code on read.
   getPreferredLanguage(): string | undefined {

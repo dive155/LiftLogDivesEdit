@@ -93,7 +93,6 @@ export const {
   setBackupReminder,
   setColorSchemeSeed,
   setFirstDayOfWeek,
-  setProToken,
   setPreferredLanguage,
   setNotesExpandedByDefault,
   setKeepScreenAwakeDuringWorkout,

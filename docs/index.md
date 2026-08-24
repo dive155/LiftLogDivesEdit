@@ -23,7 +23,7 @@ work to find the docs relevant to your area, and update it whenever you add, rem
   overload rules move them. Covers rule order, limits and starting over, rules that can never run, and
   the two ways to set up double progression. Ends with pointers to the code.
 - [PlanFileFormat.md](./PlanFileFormat.md) - the `.liftlogplan` file format, how plans are imported and
-  exported, and the Claude skill that authors plan files against the schema.
+  exported.
 - [PlaintextExport.md](./PlaintextExport.md) — CSV/JSON export of workout data, including which fields
   are included. Explicitly _not_ a backup mechanism; LiftLog cannot read these files back.
 - [CsvImport.md](./CsvImport.md) — user guide for Import from other apps (FitNotes-style and
@@ -33,7 +33,7 @@ work to find the docs relevant to your area, and update it whenever you add, rem
 
 ## Generated
 
-- [schemas/](./schemas) - JSON schemas generated from the app's models: `ai-plan/`,
-  `program-blueprint/`, `workout-worker/`. Regenerate with `npm run json-schema` from `app/`; never
+- [schemas/](./schemas) - JSON schemas generated from the app's models: `program-blueprint/`,
+  `workout-worker/`. Regenerate with `npm run json-schema` from `app/`; never
   hand-edit.
 - [img/](./img) - images referenced by the docs above.

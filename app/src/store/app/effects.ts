@@ -11,7 +11,6 @@ import { sleep } from '@/utils/sleep';
 import { initializeSettingsStateSlice } from '../settings';
 import { initializeProgramStateSlice } from '../program';
 import { initializeFeedStateSlice } from '../feed';
-import { initializeAiPlannerStateSlice } from '../ai-planner';
 import { setStringAsync } from 'expo-clipboard';
 
 export function applyAppEffects(addEffect: AddEffectFn) {
@@ -23,7 +22,6 @@ export function applyAppEffects(addEffect: AddEffectFn) {
       dispatch(initializeSettingsStateSlice());
       dispatch(initializeProgramStateSlice());
       dispatch(initializeFeedStateSlice());
-      dispatch(initializeAiPlannerStateSlice());
 
       dispatch(setIsHydrated(true));
     },

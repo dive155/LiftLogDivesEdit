@@ -1,10 +1,4 @@
 {
-  "ai.planner.subtitle": "Använd AI för att generera ett träningsprogram anpassad för dina mål",
-  "ai.planner.title": "AI-planerare",
-  "ai.restart_chat.button": "Starta om chatt",
-  "ai.type_your_message.placeholder": "Skriv ditt meddelande",
-  "ai.upgrade_to_pro.button": "Uppgradera till Pro",
-  "ai.upgrade_to_pro.explanation": "Detta låser upp AI-planeraren, som genererar ett träningsupplägg anpassat specifikt för dig och dina mål.<br>Detta är ett engångsköp på:",
   "backup.api_key.label": "API-nyckel",
   "backup.automatic_remote.subtitle": "Skicka säkerhetskopior till en fjärrserver. Endast avancerade användare",
   "backup.automatic_remote.title": "Automatiska säkerhetskopior",
