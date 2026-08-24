@@ -8,22 +8,13 @@ To export one, open `Plans`, tap the `⋮` next to the plan and choose `Export t
 
 The authoritative definition of the format is the JSON Schema at [`docs/schemas/program-blueprint/ProgramBlueprint.json`](./schemas/program-blueprint/ProgramBlueprint.json). It is generated from the app's own models, so it is always in step with what the app will accept.
 
-## Generating a plan with Claude
+## Generating a plan with Codex
 
-This repository ships a Claude skill that writes plan files for you. Describe the training you want - "a 4-day upper/lower split for an intermediate lifter, dumbbells only" - and it produces a `.liftlogplan` file, validated against the schema above before you ever see it.
+This repository ships a Codex plugin that writes plan files for you. Describe the training you want - "a 4-day upper/lower split for an intermediate lifter, dumbbells only" - and it produces a `.liftlogplan` file, validated against the schema above before you ever see it.
 
-### Claude Code
+### Codex
 
-```
-/plugin marketplace add LiamMorrow/LiftLog
-/plugin install liftlog-plan-builder@liftlog
-```
-
-### Claude chat (claude.ai)
-
-Download [`create-liftlog-plan.zip`](https://github.com/LiamMorrow/LiftLog/releases/download/plan-builder-skill/create-liftlog-plan.zip), then in Claude go to `Customize -> Skills -> + -> Upload a skill` and select it.
-
-That zip is rebuilt from this repository on every change, so it is always the current skill.
+Install the LiftLog Plan Builder Codex plugin from this repository, then ask for the training plan you want. Codex validates the generated plan before delivering it.
 
 Once it is installed, just ask for what you want:
 
@@ -33,7 +24,7 @@ Get the resulting file onto your phone (AirDrop, email, or save it to Files) and
 
 ### Changing a plan you already run
 
-The skill reads plans as happily as it writes them, so you can send it the one you are training on rather than describing it. Export the plan from `Plans -> ⋮ -> Export to file`, save it somewhere you can get at it from your computer (Drive, or mail it to yourself), then give the `.liftlogplan` to Claude and say what you want changed:
+The skill reads plans as happily as it writes them, so you can send it the one you are training on rather than describing it. Export the plan from `Plans -> ⋮ -> Export to file`, save it somewhere you can get at it from your computer (Drive, or mail it to yourself), then give the `.liftlogplan` to Codex and say what you want changed:
 
 > Here's my current plan. Swap all the barbell work for dumbbells, and add a fourth day.
 
@@ -41,13 +32,13 @@ The skill reads plans as happily as it writes them, so you can send it the one y
 
 > Have a look at my plan and tell me what's missing.
 
-Exporting means Claude sees your real exercise names, rest times, and progressive overload settings, so what comes back is your plan with the change made - not an approximation of it rebuilt from a description.
+Exporting means Codex sees your real exercise names, rest times, and progressive overload settings, so what comes back is your plan with the change made - not an approximation of it rebuilt from a description.
 
 Importing the result **adds a new plan**; it does not overwrite the original. Delete the old one from `Plans` once the replacement is in. Your logged workout history is kept separately and is untouched by either.
 
 ## Generating a plan with another AI
 
-Nothing about the format is Claude-specific. To use ChatGPT, Gemini, or anything else, give it the schema and the rules below:
+Nothing about the format is Codex-specific. To use ChatGPT, Gemini, or anything else, give it the schema and the rules below:
 
 > Write me a LiftLog workout plan as a single JSON object matching the schema at
 > https://github.com/LiamMorrow/LiftLog/blob/main/docs/schemas/program-blueprint/ProgramBlueprint.json

@@ -45,8 +45,7 @@ It needs nothing installed and no network. It prints every problem with the path
 
 Name the file after the plan: `Push Pull Legs.liftlogplan`.
 
-- **In Claude Code**, save it in the working directory and tell them where it is.
-- **In Claude chat**, write the file and give them the download link.
+- Save it in the workspace's output location when one is configured; otherwise save it in the working directory. Tell the user exactly where it is.
 
 Then tell them how to import it, since it isn't obvious:
 

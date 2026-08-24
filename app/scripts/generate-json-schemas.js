@@ -23,8 +23,8 @@ createSingleSchema(
 // Create schema for an importable/exportable program blueprint file. The docs
 // copy is published for users to author plans against; the app copy is bundled
 // so it can be loaded at runtime for validation (Metro can't reach docs/); the
-// skill copy ships inside the plan-builder skill, which is installed standalone
-// into ~/.claude or a claude.ai container and so can reach neither of the above.
+// skill copy ships inside the plan-builder plugin, which is installed standalone
+// by Codex and so can reach neither of the above.
 createSingleSchema(
   join(modelsDir, 'storage/versions/latest/blueprint.ts'),
   [

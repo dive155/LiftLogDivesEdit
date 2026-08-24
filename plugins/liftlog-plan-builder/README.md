@@ -1,23 +1,14 @@
 # LiftLog Plan Builder
 
-A Claude skill that builds [LiftLog](https://liftlog.online) workout plans. Describe the training you want - "a 4-day upper/lower split for an intermediate lifter, dumbbells only" - and it writes a `.liftlogplan` file you can import into the app.
+A Codex plugin that builds [LiftLog](https://liftlog.online) workout plans. Describe the training you want - "a 4-day upper/lower split for an intermediate lifter, dumbbells only" - and it writes a `.liftlogplan` file you can import into the app.
 
 The plan is validated against LiftLog's own schema before you get it, so it will import cleanly.
 
 ## Install
 
-### Claude Code
+### Codex
 
-```
-/plugin marketplace add LiamMorrow/LiftLog
-/plugin install liftlog-plan-builder@liftlog
-```
-
-### Claude chat (claude.ai)
-
-Download [`create-liftlog-plan.zip`](https://github.com/LiamMorrow/LiftLog/releases/download/plan-builder-skill/create-liftlog-plan.zip), then go to **Customize → Skills → + → Upload a skill** and pick it.
-
-The zip is rebuilt by CI on every change to this folder, so it always matches `main`.
+Install the plugin from the repository's Codex marketplace, then ask Codex to create or edit a LiftLog plan. The skill validates the generated `.liftlogplan` before it is delivered.
 
 ## Use
 
@@ -33,7 +24,7 @@ When it's done, get the file onto your phone (AirDrop, email, or Files) and tap 
 
 ## Editing a plan you already have
 
-You don't have to describe your current plan - send it. In LiftLog, open **Plans**, tap the `⋮` next to the plan and choose **Export to file**; the share sheet lets you save it to Files/Drive or mail it to yourself. Hand that `.liftlogplan` to Claude along with what you want changed, and you get the same plan back with the change made.
+You don't have to describe your current plan - send it. In LiftLog, open **Plans**, tap the `⋮` next to the plan and choose **Export to file**; the share sheet lets you save it to Files/Drive or mail it to yourself. Hand that `.liftlogplan` to Codex along with what you want changed, and you get the same plan back with the change made.
 
 Importing the result adds a _new_ plan rather than overwriting the old one, so delete the original once the replacement is in. Your workout history is stored separately and isn't affected.
 

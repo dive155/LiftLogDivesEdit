@@ -1,7 +1,6 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "liftlog-plan-builder",
-  "displayName": "LiftLog Plan Builder",
+  "version": "1.0.0",
   "description": "Generate LiftLog workout plans (.liftlogplan files) from a training goal, validated against the app's own schema.",
   "author": {
     "name": "Liam Morrow",
@@ -10,5 +9,19 @@
   "homepage": "https://github.com/LiamMorrow/LiftLog/blob/main/docs/PlanFileFormat.md",
   "repository": "https://github.com/LiamMorrow/LiftLog",
   "license": "AGPL-3.0",
-  "keywords": ["liftlog", "workout", "fitness", "training-plan"]
+  "keywords": ["liftlog", "workout", "fitness", "training-plan"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LiftLog Plan Builder",
+    "shortDescription": "Create validated LiftLog workout plans.",
+    "longDescription": "Generate, edit, and validate LiftLog workout plan files from a training goal.",
+    "developerName": "Liam Morrow",
+    "category": "Productivity",
+    "capabilities": ["Write"],
+    "defaultPrompt": [
+      "Build a 3-day beginner full-body workout plan.",
+      "Convert my push-pull-legs routine into a LiftLog plan.",
+      "Edit this LiftLog plan for dumbbells only."
+    ]
+  }
 }

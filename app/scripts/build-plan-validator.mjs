@@ -3,10 +3,8 @@
 /**
  * Builds the `.liftlogplan` validator that ships inside the plan-builder skill.
  *
- * The skill is installed standalone - into `~/.claude` by the plugin, or into a
- * claude.ai container as an uploaded zip - so the validator cannot import from
- * the app, and cannot assume `npm install` will work: the claude.ai sandbox has
- * no network egress by default on Team/Enterprise plans. Ajv is therefore
+ * The skill is installed standalone by the Codex plugin, so the validator cannot
+ * import from the app or assume `npm install` will work. Ajv is therefore
  * compiled ahead of time into standalone code and bundled with its runtime into
  * a single dependency-free file that runs on plain `node`.
  *

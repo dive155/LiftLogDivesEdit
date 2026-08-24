@@ -76,8 +76,9 @@ transformer (don't import that subpath yourself - it isn't in the package `expor
 
 ## Native rebuild caveat
 
-New native deps / config-plugin changes need a native rebuild - **don't run `expo run:*` yourself**;
-describe the change and ask Liam to rebuild, then verify. JS-only edits to these files hot-reload.
+New native deps / config-plugin changes need a native rebuild. Do not run `expo run:*` unless the
+requester has asked for a native build; explain the requirement and ask them to rebuild. JS-only edits
+to these files hot-reload.
 
 ## Verify
 

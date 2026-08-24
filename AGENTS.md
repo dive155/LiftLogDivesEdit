@@ -91,4 +91,12 @@ the wizard is how new users get the chance to enable it.
 - Comments explain non-obvious code for a future reader - don't narrate the diff.
 - Backend (C#): format with CSharpier (`dotnet csharpier .`) before committing.
 
-An untracked `CLAUDE.local.md` at the repo root may add machine- or author-specific workflow rules.
+## Codex task playbooks
+
+When a task matches one of these areas, read its project skill before making changes. The playbooks
+contain domain-specific constraints that supplement this guide:
+
+- `.codex/skills/add-setting-or-preference/SKILL.md` - settings and persisted preferences.
+- `.codex/skills/add-storage-migration/SKILL.md` - persisted-model and storage-schema changes.
+- `.codex/skills/expo-ui-migration/SKILL.md` - Expo UI native-control migrations or new
+  platform-split native controls.
